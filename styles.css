@@ -1,0 +1,196 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    background: #000;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+    background: url("Images/NetflixBack.jpeg");
+}
+
+
+/* Netflix Logo Styling*/
+nav {
+    position: fixed;
+    padding: 25px 60px;
+    z-index: 1;
+}
+
+nav a img {
+    width: 170px;
+}
+
+/* Main container */
+.main {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border-radius: 4px;
+    padding: 70px;
+    width: 450px;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, .75);
+}
+
+/* Sign In */
+.main h2 {
+    color: #fff;
+    font-size: 2rem;
+}
+
+.main form {
+    margin: 25px 0 65px;
+}
+
+form .form-control {
+    height: 50px;
+    position: relative;
+    margin-bottom: 16px;
+}
+
+.form-control input {
+    height: 100%;
+    width: 100%;
+    background: #333;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 1rem;
+    padding: 0 20px;
+}
+
+
+/* Slight color chance on */
+.form-control input:is(:focus, :valid) {
+    background: #444;
+    padding: 16px 20px 0;
+}
+
+
+/* Email and Password Label */
+.form-control label {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1rem;
+    pointer-events: none;
+    color: #8c8c8c;
+}
+
+
+/* Moves the labels up using translateY when typing into the boxes */
+.form-control input:is(:focus, :valid)~label {
+    font-size: 0.75rem;
+    transform: translateY(-130%);
+}
+
+form button {
+    width: 100%;
+    padding: 16px 0;
+    font-size: 1rem;
+    background: #e50914;
+    color: #fff;
+    font-weight: 500;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    margin: 25px 0 10px;
+
+}
+
+form button:hover {
+    background: #c40812;
+}
+
+.main a {
+    text-decoration: none;
+}
+
+.main a:hover {
+    text-decoration: underline;
+}
+
+.main :where(label, p, small, a) {
+    color: #b3b3b3;
+}
+
+form .form-help {
+    display: flex;
+    justify-content: space-between;
+}
+
+form .remember-me {
+    display: flex;
+}
+
+form .remember-me input {
+    margin-right: 5px;
+    accent-color: #b3b3b3;
+}
+
+form .form-help :where(label, a) {
+    font-size: 0.9rem;
+}
+
+.form-main p a {
+    color: #fff;
+}
+
+.main small {
+    display: block;
+    margin-top: 15px;
+    color: #b3b3b3;
+}
+
+.main small a {
+    color: #0071eb;
+}
+
+
+
+
+
+
+
+/* Removes background image when minimising width below 740px */
+@media (max-width:740px) {
+    body::before {
+        display: none;
+    }
+
+    nav,
+    .main {
+        padding: 20px;
+    }
+
+
+    /* Slight shrink on logo when reducing width */
+    nav a img {
+        width: 140px;
+    }
+
+
+    /* Smoother transitioning */
+    .main {
+        width: 100%;
+        top: 43%;
+    }
+
+    .main form {
+        margin: 25px 0 40px
+    }
+
+
+}
